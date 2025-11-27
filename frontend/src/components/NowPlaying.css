@@ -1,0 +1,137 @@
+/* NowPlaying.css */
+
+.now-playing-panel {
+  width: 100%;
+  height: auto; /* Fit content without scrolling */
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  padding: 10px;
+  margin: 0;
+}
+
+.song-details {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.album-cover {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.album-cover.playing {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.song-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.song-info p {
+  margin: 5px 0;
+  color: #b3b3b3;
+  font-size: 16px;
+}
+
+.song-info .artist {
+  font-weight: 500;
+}
+
+.song-info .album,
+.song-info .genre,
+.song-info .year {
+  font-size: 14px;
+}
+
+.playback-info {
+  border-top: 1px solid #282828;
+  padding-top: 20px;
+}
+
+.status {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.status-indicator {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-indicator.playing {
+  background-color: #1db954;
+  color: #ffffff;
+}
+
+.status-indicator.paused {
+  background-color: #535353;
+  color: #ffffff;
+}
+
+.time-display {
+  text-align: center;
+  font-size: 18px;
+  color: #b3b3b3;
+}
+
+.current-time {
+  color: #ffffff;
+}
+
+.no-song {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #b3b3b3;
+  font-size: 18px;
+}
+
+/* Responsive: Hide on smaller screens */
+@media (max-width: 768px) {
+  .now-playing-panel {
+    display: none;
+  }
+}
+
+/* Scrollbar styling */
+.now-playing-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.now-playing-panel::-webkit-scrollbar-track {
+  background: #121212;
+}
+
+.now-playing-panel::-webkit-scrollbar-thumb {
+  background: #535353;
+  border-radius: 4px;
+}
+
+.now-playing-panel::-webkit-scrollbar-thumb:hover {
+  background: #666666;
+}

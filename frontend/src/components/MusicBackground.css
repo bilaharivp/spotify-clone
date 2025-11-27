@@ -1,0 +1,69 @@
+.music-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.music-note {
+  position: absolute;
+  font-size: 20px;
+  color: rgba(29, 185, 84, 0.6);
+  animation: floatUp linear infinite;
+  opacity: 0.8;
+}
+
+.music-note.note-0 {
+  left: 5%;
+  animation-duration: 12s;
+  animation-delay: 0s;
+  font-size: 24px;
+}
+
+.music-note.note-1 {
+  left: 15%;
+  animation-duration: 15s;
+  animation-delay: 2s;
+  font-size: 18px;
+}
+
+.music-note.note-2 {
+  left: 35%;
+  animation-duration: 20s;
+  animation-delay: 4s;
+  font-size: 22px;
+}
+
+.music-note.note-3 {
+  left: 65%;
+  animation-duration: 17s;
+  animation-delay: 1s;
+  font-size: 20px;
+}
+
+.music-note.note-4 {
+  left: 85%;
+  animation-duration: 14s;
+  animation-delay: 3s;
+  font-size: 26px;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: -30px;
+    transform: translateX(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(15px) rotate(15deg);
+  }
+  100% {
+    bottom: 110%;
+    transform: translateX(-15px) rotate(-15deg);
+    opacity: 0;
+  }
+}

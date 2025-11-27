@@ -1,0 +1,7 @@
+- Extend MusicContext with playlists state and create/add/remove functions.
+- Update Home.js to add playlists sidebar; allow playlist selection and playback.
+- Update SongCard.js to add "Add to Playlist" button with playlist dropdown and create new playlist option.
+- Reuse or adjust CreatePlaylist.js for creating new playlists.
+- Implement adding/removing songs to/from playlists.
+- Persist playlists in localStorage and load on app start.
+- Test playlist CRUD, song adding/removal, playback, and persistence.

@@ -1,0 +1,425 @@
+/* Hamburger Menu Button */
+.hamburger-menu-btn {
+  position: fixed;
+  left: 12px;
+  top: 100px;
+  z-index: 9999;
+
+  padding: 6px 10px;
+
+  background: rgba(29, 185, 84, 0.3);
+  border: 2px solid rgba(29, 185, 84, 0.5);
+  color: #1db954;
+
+  font-size: 14px;
+  border-radius: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+
+.hamburger-menu-btn:hover {
+  background: rgba(29, 185, 84, 0.5);
+  border-color: rgba(29, 185, 84, 0.8);
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(29, 185, 84, 0.4);
+}
+
+.hamburger-menu-btn:active {
+  transform: scale(0.95);
+}
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Spotify', sans-serif;
+}
+
+.container {
+  padding: 20px;
+}
+
+.card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: none;
+}
+
+.card .card-title {
+  color: #ffffff;
+}
+
+.card .card-text {
+  color: #b3b3b3;
+}
+
+.card img {
+  border-radius: 8px;
+}
+
+.card .audio-controls audio {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #1db954;
+  border: none;
+  color: white;
+}
+
+.btn-outline-success {
+  border-color: #1db954;
+  color: #1db954;
+}
+
+.btn-outline-success:hover {
+  background-color: #1db954;
+  color: white;
+}
+
+.navbar-custom {
+  background-color: #1e1e1e;
+  border-bottom: 1px solid #282828;
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+  color: white;
+}
+
+.navbar-custom .nav-link:hover {
+  color: #1db954;
+}
+
+.spinner-border {
+  color: #1db954;
+}
+
+.animated-text {
+  color: white;
+}
+
+.artistic-img {
+  border-radius: 8px;
+}
+
+.text-danger {
+  color: #ff4c4c !important;
+}
+
+/* Playlist sidebar styles */
+.playlist-sidebar {
+  position: fixed;
+  left: 16px;
+  top: 70px;
+  width: 14.5%;
+  height: calc(100vh - 70px - 100px);
+  padding: 16px;
+  z-index: 1040;
+  transform: translateX(-6px);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+  overflow-y: auto;
+
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.55);
+  position: fixed;
+}
+
+.playlist-sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  mix-blend-mode: overlay;
+}
+
+.playlist-sidebar.show {
+  transform: translateX(0);
+}
+
+.playlist-sidebar.hide {
+  transform: translateX(-100%);
+}
+
+.playlist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.playlist-header h5 {
+  color: #ffffff; /* brighter heading */
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+.playlist-new-btn {
+  background-color: #1db954;
+  color: #ffffff; /* white text for better visibility */
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 18px rgba(29,185,84,0.12);
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* Ensure the button text is white even if Bootstrap rules are more specific */
+.playlist-header .playlist-new-btn,
+.playlist-header .playlist-new-btn * {
+  color: #ffffff !important;
+}
+
+.playlist-new-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(29,185,84,0.18);
+}
+
+.playlist-list {
+  margin-top: 8px;
+}
+
+.playlist-item {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: #eaeaea;
+  border: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 180ms ease, transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.playlist-item:hover {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  transform: translateY(-4px) scale(1.01);
+  cursor: pointer;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.35);
+}
+
+/* Make the sidebar and items visually match the song cards (glass effect) */
+.playlist-sidebar {
+  background-color: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 6px 30px rgba(0,0,0,0.25);
+}
+
+.playlist-item {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.playlist-item:hover {
+  background: rgba(255,255,255,0.03);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.playlist-name span {
+  color: #fff;
+}
+
+.playlist-badge {
+  background-color: rgba(29,185,84,0.12);
+  color: #bfeec9;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* Make +New visually consistent with song card actions */
+.playlist-new-btn {
+  background: linear-gradient(180deg, #1db954, #159243);
+  color: #fff !important;
+  border: 1px solid rgba(0,0,0,0.15);
+  box-shadow: 0 6px 18px rgba(29,185,84,0.12);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+}
+
+.playlist-new-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(29,185,84,0.18);
+}
+
+.playlist-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playlist-badge {
+  background-color: rgba(29,185,84,0.12);
+  color: #bfeec9;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.playlist-actions button {
+  border: none;
+  background: transparent;
+  color: #ff6b6b;
+  font-size: 18px;
+  padding: 4px 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.playlist-item:hover .playlist-actions button {
+  opacity: 1;
+}
+
+.playlist-actions button:hover {
+  color: #ff5555;
+  transform: scale(1.1);
+}
+
+/* Active playlist highlight */
+.playlist-item.active {
+  background: linear-gradient(90deg, rgba(29,185,84,0.12), rgba(29,185,84,0.06));
+  border-color: rgba(29,185,84,0.18);
+}
+
+/* Responsive: collapse sidebar on small screens */
+@media (max-width: 768px) {
+  .playlist-sidebar {
+    display: block;
+  }
+}
+
+/* Add subtle black glow behind playlist items on hover (matches song card glow) */
+.playlist-item {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.playlist-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  pointer-events: none;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0); /* default transparent */
+  transition: box-shadow 220ms ease, transform 220ms ease;
+  z-index: 0;
+}
+
+.playlist-item:hover::after {
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.65);
+  transform: scale(1.01);
+}
+
+/* Ensure playlist content stays above the glow */
+.playlist-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Horizontal Song List Scrolling */
+.song-list-container {
+  position: relative;
+  margin: 20px 0;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.song-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.06) transparent;
+}
+
+.song-list::-webkit-scrollbar {
+  height: 8px;
+}
+
+.song-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
+.song-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.song-scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(29, 185, 84, 0.12);
+  border: 1px solid rgba(29, 185, 84, 0.2);
+  color: #1db954;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.song-scroll-btn:hover {
+  background: rgba(29, 185, 84, 0.25);
+  border-color: rgba(29, 185, 84, 0.4);
+  color: #1ed760;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.song-scroll-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.song-scroll-btn.left {
+  left: 0;
+}
+
+.song-scroll-btn.right {
+  right: 0;
+}
