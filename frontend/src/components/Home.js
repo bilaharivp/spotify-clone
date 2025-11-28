@@ -173,50 +173,50 @@ function Home() {
                     return 0;
                   })
                   .map(([playlistName, songs]) => (
-                  <div
-                    key={playlistName}
-                    className="playlist-item mb-2"
-                    style={{
-                      width: "100%",
-                      padding: "10px",
-                      backgroundColor: "rgba(255, 255, 255, 0.1)",
-                      backdropFilter: "blur(10px)",
-                      WebkitBackdropFilter: "blur(10px)",
-                      borderRadius: "12px",
-                      border: "1px solid rgba(255, 255, 255, 0.2)",
-                      boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-                      cursor: "pointer",
-                      color: "#fff",
-                      transition:
-                        "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
-                      fontSize: "12px",
-                    }}
-                    onClick={() => {
-                      if (songs.length > 0) {
-                        setTracks(songs);
-                        setCurrentTrackIndex(0);
-                        setIsPlaying(true);
-                      }
-                    }}
-                  >
-                    <div className="d-flex justify-content-between align-items-center">
-                      <div>
-                        <strong>{playlistName}</strong>
+                    <div
+                      key={playlistName}
+                      className="playlist-item mb-2"
+                      style={{
+                        width: "100%",
+                        padding: "10px",
+                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                        backdropFilter: "blur(10px)",
+                        WebkitBackdropFilter: "blur(10px)",
+                        borderRadius: "12px",
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+                        cursor: "pointer",
+                        color: "#fff",
+                        transition:
+                          "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
+                        fontSize: "12px",
+                      }}
+                      onClick={() => {
+                        if (songs.length > 0) {
+                          setTracks(songs);
+                          setCurrentTrackIndex(0);
+                          setIsPlaying(false);
+                        }
+                      }}
+                    >
+                      <div className="d-flex justify-content-between align-items-center">
+                        <div>
+                          <strong>{playlistName}</strong>
+                        </div>
+                        <span
+                          style={{
+                            backgroundColor: "#007bff",
+                            color: "#fff",
+                            borderRadius: "12px",
+                            padding: "2px 6px",
+                            fontSize: "0.8em",
+                          }}
+                        >
+                          {songs.length}
+                        </span>
                       </div>
-                      <span
-                        style={{
-                          backgroundColor: "#007bff",
-                          color: "#fff",
-                          borderRadius: "12px",
-                          padding: "2px 6px",
-                          fontSize: "0.8em",
-                        }}
-                      >
-                        {songs.length}
-                      </span>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             )}
           </div>

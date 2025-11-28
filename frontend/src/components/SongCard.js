@@ -69,10 +69,9 @@ const SongCard = ({ song, playSong, isPlaying, playlists, setPlaylists }) => {
         borderRadius: "12px",
         border: "1px solid rgba(255, 255, 255, 0.2)",
         boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-        overflow: "hidden",
+        overflow: "visible",
       }}
       title={song.songname + " by " + song.singer}
-      onClick={() => playSong && playSong(song)}
     >
       <img
         src={
@@ -242,7 +241,21 @@ const SongCard = ({ song, playSong, isPlaying, playlists, setPlaylists }) => {
               Add to Playlist
             </button>
             {showDropdown && (
-              <ul className="dropdown-menu show" style={{ display: "block" }}>
+              <ul
+                className="dropdown-menu show"
+                style={{
+                  display: "block",
+                  position: "absolute",
+                  bottom: "100%",
+                  left: "0",
+                  right: "0",
+                  zIndex: 1000,
+                  backgroundColor: "rgba(0, 0, 0, 0.9)",
+                  border: "1px solid rgba(255, 255, 255, 0.2)",
+                  borderRadius: "8px",
+                  boxShadow: "0 4px 15px rgba(0, 0, 0, 0.5)",
+                }}
+              >
                 {Object.keys(playlists).map((playlistName) => (
                   <li key={playlistName}>
                     <button
@@ -250,6 +263,14 @@ const SongCard = ({ song, playSong, isPlaying, playlists, setPlaylists }) => {
                       onClick={(e) => {
                         e.stopPropagation();
                         addToPlaylist(playlistName);
+                      }}
+                      style={{
+                        color: "#fff",
+                        backgroundColor: "transparent",
+                        border: "none",
+                        width: "100%",
+                        textAlign: "left",
+                        padding: "8px 16px",
                       }}
                     >
                       {playlistName}
@@ -268,12 +289,21 @@ const SongCard = ({ song, playSong, isPlaying, playlists, setPlaylists }) => {
                       value={newPlaylistName}
                       onChange={(e) => setNewPlaylistName(e.target.value)}
                       onClick={(e) => e.stopPropagation()}
+                      style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.1)",
+                        color: "#fff",
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                      }}
                     />
                     <button
                       className="btn btn-primary mt-2 w-100"
                       onClick={(e) => {
                         e.stopPropagation();
                         createNewPlaylist();
+                      }}
+                      style={{
+                        backgroundColor: "rgba(0, 123, 255, 0.8)",
+                        border: "none",
                       }}
                     >
                       Create

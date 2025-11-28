@@ -34,18 +34,28 @@ const PlaybackControl = () => {
     if (audioRef.current) {
       if (tracks && tracks.length > 0) {
         const songUrl = tracks[currentTrackIndex].url;
-        const srcUrl = songUrl.startsWith("http") ? songUrl : backendBaseUrl + songUrl;
+        const srcUrl = songUrl.startsWith("http")
+          ? songUrl
+          : backendBaseUrl + songUrl;
         audioRef.current.src = srcUrl;
         if (isPlaying) {
           audioRef.current.play();
-        } else {
-          audioRef.current.pause();
         }
       } else {
         audioRef.current.src = "";
       }
     }
-  }, [currentTrackIndex, tracks, isPlaying]);
+  }, [currentTrackIndex, tracks]);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
 
   const onTimeUpdate = () => {
     setCurrentTime(audioRef.current.currentTime);
@@ -179,7 +189,9 @@ const PlaybackControl = () => {
           📋 Playlists ({playlists ? playlists.length : 0})
         </button>
         <div
-          className={`playlist-dropdown ${showPlaylistMenu ? "show" : "hidden"}`}
+          className={`playlist-dropdown ${
+            showPlaylistMenu ? "show" : "hidden"
+          }`}
         >
           {playlists && playlists.length > 0 ? (
             playlists.map((playlist) => (
